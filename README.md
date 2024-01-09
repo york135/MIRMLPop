@@ -1,0 +1,2 @@
+# MIRMLPop
+The MIR-MLPop dataset and the official implementation of the paper "MIR-MLPOP: A MULTILINGUAL POP MUSIC DATASET WITH TIME-ALIGNED LYRICS AND AUDIO," ICASSP 2024.
