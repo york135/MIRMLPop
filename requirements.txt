@@ -9,6 +9,6 @@ demucs
 soundfile
 numba
 pypinyin
-opencc-python-reimplement
+opencc-python-reimplemented
 chinese_converter
 yt-dlp
