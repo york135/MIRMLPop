@@ -97,7 +97,7 @@ class AlignModel(torch.nn.Module):
         y_in=None,
         get_orig_len: bool=True
     ):
-        audios = np.stack((itertools.zip_longest(*audios, fillvalue=0)), axis=1).astype('float32')
+        audios = np.stack(list(itertools.zip_longest(*audios, fillvalue=0)), axis=1).astype('float32')
         mel = log_mel_spectrogram(audios).to(self.device)
 
         # print (mel.shape)
