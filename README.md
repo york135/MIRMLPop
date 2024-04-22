@@ -93,7 +93,7 @@ cd preprocessing/
 python remove_filler.py [json_path] [audio_dir] [nofiller_output_dir]
 ```
 
-Each time it processes one subset. It requires a json file (specified by [json_path]) to provide filler information.
+Each time it processes one subset. It requires a json file (specified by `[json_path]`) to provide filler information.
 
 ### Chunking (convert to 30-second segments)
 
@@ -103,7 +103,7 @@ python preprocess_dataset.py -j [json_path] -u [unprocessed_audio_dir] -p [proce
     -train [train_json_path] -valid [valid_json_path] -test [test_json_path]
 ```
 
-Each time it processes one subset. It requires a json file (specified by [json_path]) to provide filler information.
+Each time it processes one subset. It requires a json file (specified by `[json_path]`) to provide filler information.
 
 Note that we only divide the training data (further separated into a 90/10 train/valid split) into 30-second chunks. For the test data, we do not perform this step. Therefore, `processed_audio_dir` will only contain the separated chunks of 20-song training data.
 
@@ -115,7 +115,7 @@ To reproduce our experiments with the Common Voice corpus, first, please downloa
 
 - `cmn`: https://commonvoice.mozilla.org/zh-TW/datasets
 - `nan`: https://commonvoice.mozilla.org/nan-tw/datasets
-- `yue`: https://commonvoice.mozilla.org/yue/datasets
+- `yue`: https://commonvoice.mozilla.org/zh-HK/datasets
 
 for all datasets, download the "Common Voice Corpus 14.0" version (2023/06/28).
 
