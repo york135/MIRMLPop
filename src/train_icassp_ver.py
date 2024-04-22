@@ -141,7 +141,7 @@ def parse_args():
     parser.add_argument(
         '--save-all-checkpoints',
         type=bool,
-        default=True
+        default=False
     )
     parser.add_argument(
         '--seed',

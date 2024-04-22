@@ -1,18 +1,21 @@
 # MIRMLPop
 
-**(2024.04.22)** Uploaded source code.
+**(2024.04.23)**: Slightly modified readme & requirements.txt & add some Common Voice subsets.
+**(2024.04.22)**: Upload source code (still lack some Common Voice subsets).
+**(2024.03.08)**: Upload dataset annotation.
 
 This repo is the official repo of the following paper:
 
-Jun-You Wang, Chung-Che Wang, Chon-In Leong, Jyh-Shing Roger Jang, "**MIR-MLPOP: A MULTILINGUAL POP MUSIC DATASET WITH TIME-ALIGNED LYRICS AND AUDIO**," accepted at ICASSP 2024.
 
-It contains 1) annotation of the MIR-MLPop dataset, 2) the source code to obtain the audio of the dataset, 3) source code we used to fine-tune Whisper on MIR-MLPop (both lyrics alignment & lyrics transcription), and 4) source code for evaluation.
+J.-Y. Wang, C.-C. Wang, C.-I. Leong and J.-S. R. Jang, "**MIR-MLPop: A Multilingual Pop Music Dataset with Time-Aligned Lyrics and Audio**," *ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, Seoul, Korea, Republic of, 2024, pp. 1366-1370.
 
-Model checkpoints (under *MIR-MLPop + CV* setting) can be found here.
+It contains 1) annotation of the MIR-MLPop dataset, 2) the source code to obtain the audio of the dataset, 3) source code we used to fine-tune and evaluate Whisper on MIR-MLPop.
+
+Hope this dataset would facilitate future lyrics transcription & alignment works! Also, big thanks to all of you who came to our poster and discussed with me in the ICASSP 2024 conference!
 
 ## The MIR-MLPop Dataset
 
-(Important) All the contents in this dataset cannot be used for commerical usage.
+**(Important)** All the contents in this dataset **cannot** be used for commerical usage.
 
 Annotations available at ``dataset/cmn_dataset_240223.json``, `dataset/nan_dataset_240223.json`, and `dataset/yue_dataset_240223.json`.
 
@@ -40,7 +43,12 @@ In our experiments, if such a case occurs, we choose the former pronunciation (`
 
 - **Regarding song #25 in ``nan`` subset.** The filler annotation ``[321.112729, 362.658552, "speech"]`` covers the fade out part of the song (after the outro). We were a little bit unsure whether this fade out part should be considered as lyrics (the volume decreases clearly, the last few characters are almost inaudible; also, the official lyrics do not include this part), so we simply added it into the ``speech`` part. If you think that this part should be a part of the lyrics, then the filler annotation should be modified to ``[321.112729, 323.709000, "speech"]`` (this part is indeed a speech segment), and the lyrics annotation should be added with `送予你的歌 掛念毋敢講出聲 聲聲句句做你拍拚做你去追夢 望你袂虛華 發心袂重耽 擔蔥作穡 實在拚心內較輕鬆 送予你的歌 歌詞藏喙內底咬` (for clarity, here I add blanks to separate phrases).
 
-### Obtain audio files
+## Install dependencies
+```
+pip install -r requirements.txt 
+```
+
+## Obtain audio files
 
 ```
 python download_audio.py [json_path] [output_dir]
@@ -188,7 +196,6 @@ Therefore, in out experiments, we first build such a list by:
 cd src/
 python get_suppress_token.py --train-data [train json path1] [train json path2]... \  
           --output-path [output path]
-
 ```
 
 This will encode all the labels in the training data (you should also include the validation data here) to Whisper tokens. Then, it will generate a list of tokens that do not appear in the training data to `output path`.
@@ -222,7 +229,7 @@ We thank the following people for annotating and reviewing the MIR-MLPop dataset
 - **cmn** (Mandarin Chinese) subset: Yu-Teng Hsu, Sean Chang, Michael Zhu, Bo-Han Feng, Hsueh-Han Lee, Chen Yi Liang, and Yu-Chun Lin.
 
 - **yue** (Cantonese) subset: Kin Fong Chao, Choi Tim Ho, Charlotte Ong, Wing
-  Tung Yeung, and Chak Chon Pun
+  Tung Yeung, and Chak Chon Pun.
 
 - **nan** (Taiwanese Hokkien) subset: Yu-Chun Lin, Liau Sui-Lin, Zhe-Hao Lin, Wei-Chieh Chou, and Meng-Hua Yu.
 
@@ -230,7 +237,7 @@ We thank the following people for annotating and reviewing the MIR-MLPop dataset
 
 As for the contribution of each author:
 
-- Jun-You Wang (github account: @york135) was responsible for curating the nan subset and a part of cmn subset. He also organized this repo and conducted the experiments for the nan and cmn subset.
+- Jun-You Wang (github account: @york135) was responsible for curating the nan subset and a part of the cmn subset. He also organized this repo and conducted the experiments for the nan and cmn subset.
 
 - Chung-Che Wang was responsible for curating a large part of the cmn subset.
 

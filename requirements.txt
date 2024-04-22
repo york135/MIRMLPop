@@ -1,0 +1,14 @@
+tqdm
+numpy
+librosa
+torch>=1.13.1
+openai-whisper
+transformers
+jiwer
+demucs
+soundfile
+numba
+pypinyin
+opencc-python-reimplement
+chinese_converter
+yt-dlp
