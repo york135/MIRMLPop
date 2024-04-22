@@ -4,8 +4,6 @@ import numpy as np
 import json
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
-import statistics
-import matplotlib.pyplot as plt
 
 def process_word_label(path):
     rows = np.loadtxt(path, dtype=str, delimiter='\t', ndmin=2)
