@@ -2,8 +2,6 @@ import os
 import json
 from typing import List, Optional
 from dataclasses import dataclass
-from ast import literal_eval
-import pandas as pd
 
 @dataclass
 class Record:

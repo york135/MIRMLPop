@@ -4,8 +4,6 @@ import numpy as np
 import json
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
-import statistics
-import matplotlib.pyplot as plt
 
 import librosa
 from tqdm import tqdm
