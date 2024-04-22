@@ -1,6 +1,6 @@
 # MIRMLPop
 
-**(2024.04.23)**: Slightly modified readme & requirements.txt & add some Common Voice subsets.
+**(2024.04.23)**: Slightly modified readme & requirements.txt & add the remaining Common Voice subsets.
 
 **(2024.04.22)**: Upload source code (still lack some Common Voice subsets).
 
